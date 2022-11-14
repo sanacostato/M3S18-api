@@ -5,11 +5,15 @@ const cors = require('cors');
 const server = express();
 // usamos el middelware de cors que importamos antes
 server.use(cors());
+
+//importamos el dor.env
+require('dotenv').config();
+
 // usamos el middelware de expres.json para poder leer los datos que envain en el body
 server.use(express.json());
 
-//ponemos el puerto en una constante,esta va aen mayuscula
-const PORT = 3000;
+//ponemos el puerto en una constante,esta va aen mayuscula. y eso va por la carpeta de .env
+const PORT = process.env.PORT;
 
 // CREAMOS UN array de objetos para simular una base de datos
 let platillos = [
